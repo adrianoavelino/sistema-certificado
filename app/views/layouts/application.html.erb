@@ -1,17 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="icon" href="/assets/unesp.ico" type="image/ico" />
     <title>SistemaCertificado</title>
+
+    <!-- Bootstrap -->
+    <link href="/templates/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/templates/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/templates/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/templates/gentelella/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="/templates/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="/templates/gentelella/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="/templates/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/templates/gentelella/build/css/custom.min.css" rel="stylesheet">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="nav-md">
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="#" class="site_title">
+                <img src="/assets/unesplogowhite.png" alt="Logo da Unesp" class="logo" >
+              </a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="/assets/user.png" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bem vindo,</span>
+                <h2> xxxxxxxxxxxx </h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>Menu</h3>
+                <ul class="nav side-menu">
+                  <li>
+                    <a><i class="fa fa-home"></i> Home </a>
+                  </li>
+                  <li class="">
+                    <a>
+                      <i class="fa fa-cog"></i> Avançado <span class="fa fa-chevron-down"></span>
+                    </a>
+                      <ul class="nav child_menu">
+                        <li><a href="#">Usuários</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sair </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+                <div class="navbar-left">
+                  <h1>Sistema de certificados</h1>
+                </div>
+              </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="row">
+            <%= yield %>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Desenvolvimento com <i class="fa fa-heart"></i> por Adriano Avelino
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+    <!-- jQuery -->
+    <script src="/templates/gentelella/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/templates/gentelella/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="/templates/gentelella/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/templates/gentelella/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="/templates/gentelella/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/templates/gentelella/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="/templates/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="/templates/gentelella/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="/templates/gentelella/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/templates/gentelella/vendors/Flot/jquery.flot.js"></script>
+    <script src="/templates/gentelella/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/templates/gentelella/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/templates/gentelella/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/templates/gentelella/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/templates/gentelella/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/templates/gentelella/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/templates/gentelella/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/templates/gentelella/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/templates/gentelella/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/templates/gentelella/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/templates/gentelella/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="/templates/gentelella/vendors/moment/min/moment.min.js"></script>
+    <script src="/templates/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/templates/gentelella/build/js/custom.min.js"></script>
   </body>
 </html>
