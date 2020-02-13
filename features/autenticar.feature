@@ -5,12 +5,6 @@ Funcionalidade: Autenticação de usuários
   Eu quero realizar a autenticação
   Para ter acesso ao sistema
 
-  Cenário: Usuário realiza cadastro
-    Dado que eu sou um usuário autenticado
-    E acesso a página de cadastro de login
-    Quando eu enviar as informações de login
-    Então eu devo acessar a página Home
-
   Cenário: Usuário realiza o login
     Dado que eu sou um usuário cadastrado
     E visito a página de login
