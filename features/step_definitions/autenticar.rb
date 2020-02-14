@@ -1,27 +1,41 @@
 Dado("que eu sou um usuário cadastrado") do
-  pending # Write code here that turns the phrase above into concrete actions
+  criar_usuario
+  expect(Usuario.count).to eq 1
 end
 
 Dado("visito a página de login") do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit new_usuario_session_path
+  expect(page).to have_content 'Login'
 end
 
 Quando("eu enviar as informações de login") do
-  pending # Write code here that turns the phrase above into concrete actions
+  fazer_login
 end
 
 Então("eu devo ter acesso ao sistema") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content "Bem vindo,"
 end
 
 Dado("que eu sou um usuário autenticado") do
-  pending # Write code here that turns the phrase above into concrete actions
+  criar_usuario
+  visit new_usuario_session_path
+  fazer_login
 end
 
 Quando("eu clico no link de sair") do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.find('a', text: 'Sair').click
 end
 
 Então("eu devo acessar a página de login") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_current_path(new_usuario_session_path)
+end
+
+def criar_usuario
+  @usuario = FactoryBot.create(:usuario)
+end
+
+def fazer_login
+  fill_in "usuario_email", with: @usuario.email
+  fill_in "usuario_password", with: @usuario.password
+  click_button "Entrar"
 end
