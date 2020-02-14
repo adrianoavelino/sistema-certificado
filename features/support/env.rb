@@ -5,6 +5,23 @@
 # files.
 
 require 'cucumber/rails'
+require 'database_cleaner'
+
+World(FactoryBot::Syntax::Methods)
+
+Capybara.app_host = "http://#{ENV['TEST_APP_HOST']}:#{ENV['TEST_PORT']}"
+Capybara.javascript_driver = :selenium
+Capybara.run_server = false
+
+caps = Selenium::WebDriver::Remote::Capabilities.firefox()
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(
+      app,
+      browser: :remote,
+      url: "http://#{ENV['SELENIUM_HOST']}:#{ENV['SELENIUM_PORT']}/wd/hub",
+      desired_capabilities: caps
+  )
+end
 
 # frozen_string_literal: true
 
