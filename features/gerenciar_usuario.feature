@@ -15,3 +15,8 @@ Funcionalidade: Gerenciar usuarios
     Dado que eu visito a página de cadastro de usuários
     Quando eu enviar as informações do cadastro do usuario
     Então eu devo ver as informações do novo usuario
+
+  Cenário: Usuário administrador adiciona um novo usuario com senhas diferente da confirmação de senha
+    Dado que eu visito a página de cadastro de usuários
+    Quando eu enviar as informações do cadastro do usuario com senhas diferentes
+    Então eu devo ver uma mensagem sobre senhas diferentes
