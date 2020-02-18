@@ -20,3 +20,8 @@ Funcionalidade: Gerenciar usuarios
     Dado que eu visito a página de cadastro de usuários
     Quando eu enviar as informações do cadastro do usuario com senhas diferentes
     Então eu devo ver uma mensagem sobre senhas diferentes
+
+  Cenário: Usuario administrador visualiza a lista de usuários
+    Dado que eu tenho 4 usuários
+    Quando eu acessar a página de usuários
+    Então eu devo visualizar 4 usuários na lista de usuários
