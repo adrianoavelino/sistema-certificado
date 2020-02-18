@@ -25,3 +25,24 @@ end
 Então("eu devo ver uma mensagem sobre senhas diferentes") do
   expect(page).to have_content "Confirmação de senha não é igual a Senha"
 end
+
+Dado("que eu tenho {int} usuários") do |qtd|
+  total_usuarios = qtd - Usuario.count
+  FactoryBot.create_list(:usuario, total_usuarios)
+  expect(Usuario.count).to eq qtd
+end
+
+Quando("eu acessar a página de usuários") do
+  visit usuarios_path
+end
+
+Então("eu devo visualizar {int} usuários na lista de usuários") do |qtd|
+  usuario_um = Usuario.first
+  usuario_dois = Usuario.second
+  usuario_tres = Usuario.third
+  usuario_quatro = Usuario.fourth
+  expect(page).to have_content usuario_um.email
+  expect(page).to have_content usuario_dois.email
+  expect(page).to have_content usuario_tres.email
+  expect(page).to have_content usuario_quatro.email
+end
