@@ -17,7 +17,6 @@ Então("eu devo ter acesso ao sistema") do
 end
 
 Dado("que eu sou um usuário autenticado") do
-  criar_usuario
   visit new_usuario_session_path
   fazer_login
 end
