@@ -12,6 +12,7 @@ Funcionalidade: Autenticação de usuários
     Então eu devo ter acesso ao sistema
 
   Cenário: Usuário realiza o logoff
-    Dado que eu sou um usuário autenticado
+    Dado que eu sou um usuário cadastrado
+    E que eu sou um usuário autenticado
     Quando eu clico no link de sair
     Então eu devo acessar a página de login
