@@ -26,6 +26,10 @@
           <td class=" "><%= usuario.id %></td>
           <td class=" "> <%= usuario.email %> </td>
           <td class=" last">
+            <%= link_to  edit_usuario_path(usuario), class: 'edit_usuario' do %>
+            <i class="fa fa-pencil"></i>
+            <% end %>
+            &nbsp;
             <!-- Button trigger modal -->
             <a rel="nofollow" data-toggle="modal" data-target="#modalUsuario<%= usuario.id %>">
               <i class="fa fa-trash"></i>
