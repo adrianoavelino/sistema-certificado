@@ -57,3 +57,21 @@ Então("eu não devo visualizar as informações desse usuário") do
   expect(page).not_to have_content @usuario_deletado.email
   expect(page).to have_content 'Usuário excluído com sucesso!'
 end
+
+Dado("que eu acesso a página de atualização do usuário") do
+  FactoryBot.create(:usuario)
+  visit usuarios_path
+  all('.edit_usuario').last.click
+end
+
+Quando("eu alterar as informações") do
+  @usuario_atualizado = FactoryBot.build(:usuario)
+  fill_in "usuario_email", with: @usuario_atualizado.email
+  fill_in "usuario_password", with: @usuario_atualizado.password
+  fill_in "usuario_password_confirmation", with: @usuario_atualizado.password
+  click_button "Atualizar Usuário"
+end
+
+Então("eu devo visualizar as informações atualizadas desse usuário") do
+  expect(page).to have_content @usuario_atualizado.email
+end
