@@ -50,7 +50,7 @@ end
 Quando("deletar {int} usuário") do |int|
   @usuario_deletado = Usuario.last
   all('[data-toggle="modal"]').last.click
-  find('a.btn-danger').click
+  all('a.btn-danger').last.click
 end
 
 Então("eu não devo visualizar as informações desse usuário") do
