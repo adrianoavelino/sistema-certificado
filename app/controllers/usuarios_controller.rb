@@ -16,6 +16,22 @@ class UsuariosController < ApplicationController
     end
   end
 
+  def edit
+    @usuario = Usuario.find(params[:id])
+  end
+
+  def update
+    if params[:usuario][:password].blank? && params[:usuario][:password_confirmation].blank?
+      params[:usuario].extract!(:password, :password_confirmation)
+    end
+    @usuario = Usuario.find(params[:id])
+    if @usuario.update(usuario_params)
+      redirect_to usuarios_path, notice: "Usuário atualizado com sucesso!"
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @usuario = Usuario.find(params[:id])
     if @usuario.destroy
