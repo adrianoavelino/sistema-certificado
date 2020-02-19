@@ -25,3 +25,9 @@ Funcionalidade: Gerenciar usuarios
     Dado que eu tenho 4 usuários
     Quando eu acessar a página de usuários
     Então eu devo visualizar 4 usuários na lista de usuários
+
+  Cenário: Usuario administrador deleta usuário
+    Dado que eu tenho 2 usuários
+    Quando eu acessar a página de usuários
+    E deletar 1 usuário
+    Então eu não devo visualizar as informações desse usuário
