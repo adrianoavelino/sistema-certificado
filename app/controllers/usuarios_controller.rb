@@ -16,6 +16,15 @@ class UsuariosController < ApplicationController
     end
   end
 
+  def destroy
+    @usuario = Usuario.find(params[:id])
+    if @usuario.destroy
+      redirect_to usuarios_path, notice: "Usuário excluído com sucesso!"
+    else
+      render 'index'
+    end
+  end
+
   private
   def usuario_params
     params.require(:usuario).permit(:email, :password, :password_confirmation)
