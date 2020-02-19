@@ -46,3 +46,14 @@ Então("eu devo visualizar {int} usuários na lista de usuários") do |qtd|
   expect(page).to have_content usuario_tres.email
   expect(page).to have_content usuario_quatro.email
 end
+
+Quando("deletar {int} usuário") do |int|
+  @usuario_deletado = Usuario.last
+  all('[data-toggle="modal"]').last.click
+  find('a.btn-danger').click
+end
+
+Então("eu não devo visualizar as informações desse usuário") do
+  expect(page).not_to have_content @usuario_deletado.email
+  expect(page).to have_content 'Usuário excluído com sucesso!'
+end
