@@ -31,3 +31,8 @@ Funcionalidade: Gerenciar usuarios
     Quando eu acessar a página de usuários
     E deletar 1 usuário
     Então eu não devo visualizar as informações desse usuário
+
+  Cenário: Usuario administrador atualiza usuário
+    Dado que eu acesso a página de atualização do usuário
+    Quando eu alterar as informações
+    Então eu devo visualizar as informações atualizadas desse usuário
