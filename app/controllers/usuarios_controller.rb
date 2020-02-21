@@ -1,4 +1,5 @@
 class UsuariosController < ApplicationController
+    before_action :set_usuario, only: [:update, :destroy]
   def index
     @usuarios = Usuario.all
   end
@@ -24,7 +25,6 @@ class UsuariosController < ApplicationController
     if params[:usuario][:password].blank? && params[:usuario][:password_confirmation].blank?
       params[:usuario].extract!(:password, :password_confirmation)
     end
-    @usuario = Usuario.find(params[:id])
     if @usuario.update(usuario_params)
       redirect_to usuarios_path, notice: "Usuário atualizado com sucesso!"
     else
@@ -33,7 +33,6 @@ class UsuariosController < ApplicationController
   end
 
   def destroy
-    @usuario = Usuario.find(params[:id])
     if @usuario.destroy
       redirect_to usuarios_path, notice: "Usuário excluído com sucesso!"
     else
@@ -44,5 +43,9 @@ class UsuariosController < ApplicationController
   private
   def usuario_params
     params.require(:usuario).permit(:email, :password, :password_confirmation)
+  end
+
+  def set_usuario
+    @usuario = Usuario.find(params[:id])
   end
 end
