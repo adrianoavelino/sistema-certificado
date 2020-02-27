@@ -11,6 +11,17 @@ Então("eu devo ver uma notificação de aluno cadastrado") do
   expect(page).to have_content "Aluno cadastrado com sucesso!"
 end
 
+Quando("eu enviar as informações do cadastro do aluno com ra repetido") do
+  aluno = FactoryBot.create(:aluno)
+  fill_in "aluno_nome", with: aluno.nome
+  fill_in "aluno_ra", with: aluno.ra
+  click_button "Criar Aluno"
+end
+
+Então("eu devo ver uma notificação de ra do aluno em uso") do
+  expect(page).to have_content "Ra já está em uso"
+end
+
 def preencher_form_aluno
   aluno = FactoryBot.build(:aluno)
   fill_in "aluno_nome", with: aluno.nome
