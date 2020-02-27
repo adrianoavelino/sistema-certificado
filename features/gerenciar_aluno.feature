@@ -19,3 +19,8 @@ Funcionalidade: Gerenciar alunos
     Dado que eu visito a página de cadastro de alunos
     Quando eu enviar as informações do cadastro do aluno com ra repetido
     Então eu devo ver uma notificação de ra do aluno em uso
+
+  Cenário: Visualizando lista de alunos
+    Dado que eu tenho 4 alunos
+    Quando eu acessar a página de alunos
+    Então eu devo visualizar 4 alunos na lista de alunos

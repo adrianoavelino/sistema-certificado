@@ -24,6 +24,26 @@ Então("eu devo ver uma notificação de ra do aluno em uso") do
   expect(page).to have_content "Ra já está em uso"
 end
 
+Dado("que eu tenho {int} alunos") do |qtd|
+  FactoryBot.create_list(:aluno, qtd)
+  expect(Aluno.count).to eq qtd
+end
+
+Quando("eu acessar a página de alunos") do
+  visit alunos_path
+end
+
+Então("eu devo visualizar {int} alunos na lista de alunos") do |int|
+  aluno_um = Aluno.first
+  aluno_dois = Aluno.second
+  aluno_tres = Aluno.third
+  aluno_quatro = Aluno.fourth
+  expect(page).to have_content aluno_um.ra
+  expect(page).to have_content aluno_dois.ra
+  expect(page).to have_content aluno_tres.ra
+  expect(page).to have_content aluno_quatro.ra
+end
+
 def preencher_form_aluno(aluno)
   fill_in "aluno_nome", with: aluno.nome
   fill_in "aluno_ra", with: aluno.ra
