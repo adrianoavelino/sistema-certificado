@@ -1,4 +1,9 @@
 class AlunosController < ApplicationController
+
+  def index
+    @alunos = Aluno.all
+  end
+
   def new
     @aluno = Aluno.new
   end
