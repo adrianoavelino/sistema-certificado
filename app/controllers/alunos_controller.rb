@@ -1,4 +1,5 @@
 class AlunosController < ApplicationController
+  before_action :set_aluno, only: [:destroy]
 
   def index
     @alunos = Aluno.all
@@ -17,8 +18,20 @@ class AlunosController < ApplicationController
     end
   end
 
+  def destroy
+    if @aluno.destroy
+      redirect_to alunos_path, notice: "Aluno excluído com sucesso!"
+    else
+      render 'index'
+    end
+  end
+
   private
   def aluno_params
     params.require(:aluno).permit(:nome, :ra)
+  end
+
+  def set_aluno
+    @aluno = Aluno.find(params[:id])
   end
 end
