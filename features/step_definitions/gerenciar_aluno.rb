@@ -55,6 +55,23 @@ Então("eu não devo visualizar as informações desse aluno") do
   expect(page).to have_content 'Aluno excluído com sucesso!'
 end
 
+Dado("que eu acesso a página de atualização do aluno") do
+  FactoryBot.create(:aluno)
+  visit alunos_path
+  all('.edit_aluno').last.click
+end
+
+Quando("eu alterar as informações do aluno") do
+  @aluno_atualizado = FactoryBot.build(:aluno)
+  preencher_form_aluno(@aluno_atualizado)
+  click_button "Atualizar Aluno"
+end
+
+Então("eu devo visualizar as informações atualizadas desse aluno") do
+  expect(page).to have_content @aluno_atualizado.nome
+  expect(page).to have_content @aluno_atualizado.ra
+end
+
 def preencher_form_aluno(aluno)
   fill_in "aluno_nome", with: aluno.nome
   fill_in "aluno_ra", with: aluno.ra

@@ -30,3 +30,8 @@ Funcionalidade: Gerenciar alunos
     Quando eu acessar a página de alunos
     E deletar um aluno
     Então eu não devo visualizar as informações desse aluno
+
+  Cenário: Atualizando aluno
+    Dado que eu acesso a página de atualização do aluno
+    Quando eu alterar as informações do aluno
+    Então eu devo visualizar as informações atualizadas desse aluno
