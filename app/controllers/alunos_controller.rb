@@ -1,5 +1,5 @@
 class AlunosController < ApplicationController
-  before_action :set_aluno, only: [:destroy]
+  before_action :set_aluno, only: [:update, :destroy]
 
   def index
     @alunos = Aluno.all
@@ -15,6 +15,18 @@ class AlunosController < ApplicationController
       redirect_to new_aluno_path, notice: 'Aluno cadastrado com sucesso!'
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @aluno = Aluno.find(params[:id])
+  end
+
+  def update
+    if @aluno.update(aluno_params)
+      redirect_to alunos_path, notice: "Aluno atualizado com sucesso!"
+    else
+      render 'edit'
     end
   end
 
