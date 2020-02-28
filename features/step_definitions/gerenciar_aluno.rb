@@ -44,6 +44,17 @@ Então("eu devo visualizar {int} alunos na lista de alunos") do |int|
   expect(page).to have_content aluno_quatro.ra
 end
 
+Quando("deletar um aluno") do
+  @aluno_deletado = Aluno.last
+  all('[data-toggle="modal"]').last.click
+  all('a.btn-danger').last.click
+end
+
+Então("eu não devo visualizar as informações desse aluno") do
+  expect(page).not_to have_content @aluno_deletado.ra
+  expect(page).to have_content 'Aluno excluído com sucesso!'
+end
+
 def preencher_form_aluno(aluno)
   fill_in "aluno_nome", with: aluno.nome
   fill_in "aluno_ra", with: aluno.ra

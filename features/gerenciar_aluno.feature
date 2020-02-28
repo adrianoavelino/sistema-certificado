@@ -24,3 +24,9 @@ Funcionalidade: Gerenciar alunos
     Dado que eu tenho 4 alunos
     Quando eu acessar a página de alunos
     Então eu devo visualizar 4 alunos na lista de alunos
+
+  Cenário: Deletando aluno
+    Dado que eu tenho 2 alunos
+    Quando eu acessar a página de alunos
+    E deletar um aluno
+    Então eu não devo visualizar as informações desse aluno
