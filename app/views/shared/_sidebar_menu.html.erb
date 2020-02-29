@@ -1,0 +1,30 @@
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <h3>Menu</h3>
+              <ul class="nav side-menu">
+                <li>
+                  <%= link_to root_path do %>
+                  <i class="fa fa-home"></i> Home
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to alunos_path do %>
+                  <i class="fa fa-users"></i> Aluno
+                  <% end %>
+                </li>
+                <li class="">
+                  <a>
+                    <i class="fa fa-cog"></i> Avançado <span class="fa fa-chevron-down"></span>
+                  </a>
+                    <ul class="nav child_menu">
+                      <li><%= link_to 'Usuários', usuarios_path %></li>
+                    </ul>
+                </li>
+                <li>
+                  <%= link_to destroy_usuario_session_path, method: :delete do %>
+                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sair
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
