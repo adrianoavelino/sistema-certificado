@@ -1,5 +1,5 @@
 class AlunosController < ApplicationController
-  before_action :set_aluno, only: [:update, :destroy]
+  before_action :set_aluno, only: [:update, :edit,:destroy]
 
   def index
     @alunos = Aluno.all
@@ -19,7 +19,6 @@ class AlunosController < ApplicationController
   end
 
   def edit
-    @aluno = Aluno.find(params[:id])
   end
 
   def update
