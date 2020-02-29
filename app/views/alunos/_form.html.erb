@@ -1,0 +1,31 @@
+    <% if notice %>
+      <div class="alert alert-success col-12"><%= notice %></div>
+    <% end %>
+
+    <% if @aluno.errors.any? %>
+        <div class="alert alert-danger col-12">
+          <div id="error_explanation">
+            <ul>
+              <% @aluno.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    <% end %>
+
+    <%= form_for @aluno do |form| %>
+      <div class="form-group">
+        <%= form.label :nome %>
+        <%= form.text_field :nome, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :ra %>
+        <%= form.text_field :ra, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit nil, :class => "btn btn-primary" %>
+      </div>
+    <% end %>

@@ -28,46 +28,7 @@
       </thead>
 
       <tbody>
-      <% @alunos.each do |aluno| %>
-        <tr class="even pointer">
-          <td class=" "><%= aluno.id %></td>
-          <td class=" "> <%= aluno.nome %> </td>
-          <td class=" "> <%= aluno.ra %> </td>
-          <td class=" last">
-            <%= link_to  edit_aluno_path(aluno), class: 'edit_aluno' do %>
-            <i class="fa fa-pencil"></i>
-            <% end %>
-            &nbsp;
-            <!-- Button trigger modal -->
-            <a rel="nofollow" data-toggle="modal" data-target="#modalUsuario<%= aluno.id %>">
-              <i class="fa fa-trash"></i>
-            </a>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modalUsuario<%= aluno.id %>" tabindex="-1" role="dialog" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Excluir usuário</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Deseja excluir o aluno <%= aluno.nome %>?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <%= link_to  aluno_path(aluno), method: :delete, class: 'btn btn-danger' do %>
-                      Excluir
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-      <% end %>
+        <%= render(@alunos) %>
       </tbody>
     </table>
   </div>
