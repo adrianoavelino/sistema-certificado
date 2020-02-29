@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :evento do
-    descricao { FFaker::AWS.product_description }
+    descricao { FFaker::Conference.name }
   end
 end
