@@ -4,6 +4,9 @@
       usuario:
         one: Usuário
         other: Usuários
+      emission_sector:
+        one: Setor de Emissão
+        other: Setores de Emissão
     attributes:
       usuario:
         email: Email
@@ -13,3 +16,5 @@
         updated_at: Atualizado em
       evento:
         descricao: Descrição
+      emission_sector:
+        description: Descrição
