@@ -1,0 +1,38 @@
+  <tr class="even pointer">
+    <td class=" "><%= emission_sector.id %></td>
+    <td class=" "> <%= emission_sector.description %> </td>
+    <td class=" last">
+      <%= link_to  edit_emission_sector_path(emission_sector), class: 'edit_emission_sector' do %>
+      <i class="fa fa-pencil"></i>
+      <% end %>
+      &nbsp;
+      <!-- Button trigger modal -->
+      <a rel="nofollow" data-toggle="modal" data-target="#modalEvento<%= emission_sector.id %>">
+        <i class="fa fa-trash"></i>
+      </a>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalEvento<%= emission_sector.id %>" tabindex="-1" role="dialog" aria-labelledby="modalEventoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Excluir Setor de Emissão</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Deseja excluir o Setor de
+              Emissão <%= emission_sector.description %>?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <%= link_to  emission_sector_path(emission_sector), method: :delete, class: 'btn btn-danger' do %>
+                Excluir
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
