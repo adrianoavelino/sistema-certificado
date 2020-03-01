@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :alunos
   resources :eventos
+  resources :emission_sectors
   root 'home#index'
 end
