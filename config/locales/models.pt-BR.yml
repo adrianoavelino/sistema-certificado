@@ -7,6 +7,9 @@
       emission_sector:
         one: Setor de Emissão
         other: Setores de Emissão
+      certification_type:
+        one: Tipo de Certificação
+        other: Tipos de Certificação
     attributes:
       usuario:
         email: Email
@@ -17,4 +20,6 @@
       evento:
         descricao: Descrição
       emission_sector:
+        description: Descrição
+      certification_type:
         description: Descrição
