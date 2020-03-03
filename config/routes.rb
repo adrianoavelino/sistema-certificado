@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :alunos
   resources :eventos
   resources :emission_sectors
+  resources :certification_types
   root 'home#index'
 end
