@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :eventos
   resources :emission_sectors
   resources :certification_types
+  resources :certificados
   root 'home#index'
 end
