@@ -1,0 +1,38 @@
+  <tr class="even pointer">
+    <td class=" "><%= certificado.id %></td>
+    <td class=" "><%= certificado.aluno.nome %></td>
+    <td class=" "> <%= certificado.titulo %> </td>
+    <td class=" last">
+      <%= link_to  edit_certificado_path(certificado), class: 'edit_certificado' do %>
+      <i class="fa fa-pencil"></i>
+      <% end %>
+      &nbsp;
+      <!-- Button trigger modal -->
+      <a rel="nofollow" data-toggle="modal" data-target="#modalCertificado<%= certificado.id %>">
+        <i class="fa fa-trash"></i>
+      </a>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalCertificado<%= certificado.id %>" tabindex="-1" role="dialog" aria-labelledby="modalEventoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Excluir Certificado</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Deseja excluir o Certificado de código <%= certificado.id %>?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <%= link_to  certificado_path(certificado), method: :delete, class: 'btn btn-danger' do %>
+                Excluir
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>

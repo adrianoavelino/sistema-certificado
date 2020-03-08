@@ -1,0 +1,71 @@
+    <% if notice %>
+      <div class="alert alert-success col-12"><%= notice %></div>
+    <% end %>
+
+    <% if @certificado.errors.any? %>
+        <div class="alert alert-danger col-12">
+          <div id="error_explanation">
+            <ul>
+              <% @certificado.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    <% end %>
+
+    <%= form_for @certificado do |form| %>
+      <div class="form-group">
+        <%= form.label :ano %>
+        <%= form.text_field :ano, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :data_emissao %>
+        <%= form.text_field :data_emissao, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :aluno %>
+        <%= form.select :aluno_id, options_for_select(Aluno.all.map{|aluno|[aluno.nome, aluno.id]}), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :evento %>
+        <%= form.select :evento_id, options_for_select(Evento.all.map{|evento|[evento.descricao, evento.id]}), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :titulo %>
+        <%= form.text_field :titulo, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :periodo_inicial %>
+        <%= form.text_field :periodo_inicial, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :periodo_final %>
+        <%= form.text_field :periodo_final, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :carga_horaria %>
+        <%= form.text_field :carga_horaria, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :certification_type %>
+        <%= form.select :certification_type_id, options_for_select(CertificationType.all.map{|certification_type|[certification_type.description, certification_type.id]}), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :dados_adicionais %>
+        <%= form.text_field :dados_adicionais, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :emission_sector %>
+        <%= form.select :emission_sector_id, options_for_select(EmissionSector.all.map{|evento|[evento.description, evento.id]}), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+
+      </div>
+      <div class="form-group">
+        <%= form.label :observacoes %>
+        <%= form.text_field :observacoes, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit nil, :class => "btn btn-primary" %>
+      </div>
+    <% end %>
