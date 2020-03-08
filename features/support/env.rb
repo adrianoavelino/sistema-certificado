@@ -13,7 +13,8 @@ Capybara.app_host = "http://#{ENV['TEST_APP_HOST']}:#{ENV['TEST_PORT']}"
 Capybara.javascript_driver = :selenium
 Capybara.run_server = false
 
-caps = Selenium::WebDriver::Remote::Capabilities.firefox()
+args = ['--no-default-browser-check', '--start-maximized']
+caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => args})
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(
       app,
@@ -22,7 +23,6 @@ Capybara.register_driver :selenium do |app|
       desired_capabilities: caps
   )
 end
-
 # frozen_string_literal: true
 
 # Capybara defaults to CSS3 selectors rather than XPath.
@@ -74,4 +74,3 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
-
