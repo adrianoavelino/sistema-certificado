@@ -6,7 +6,12 @@ class CertificadosController < ApplicationController
   end
 
   def new
-    @certificado = Certificado.new
+    @certificado = Certificado.new(
+      aluno: Aluno.new,
+      evento: Evento.new,
+      certification_type: CertificationType.new,
+      emission_sector: EmissionSector.new
+    )
   end
 
   def create
