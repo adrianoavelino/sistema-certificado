@@ -10,6 +10,8 @@ services:
       - db
     build: .
     command: bash start.sh
+    stdin_open: true
+    tty: true
     ports:
       - "3000:3000"
     volumes:
