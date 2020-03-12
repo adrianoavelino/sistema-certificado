@@ -14,7 +14,6 @@ Quando("eu enviar as informações do cadastro do certificado") do
     :certificado,
     aluno_id: @aluno.id,
     evento_id: @evento.id,
-    evento_id: @evento.id,
     certification_type_id: @certification_type.id,
     emission_sector_id: @emission_sector.id
   )
@@ -72,7 +71,6 @@ Quando("eu alterar as informações do certificado") do
   @certificado_atualizado = FactoryBot.build(
     :certificado,
     aluno_id: @aluno.id,
-    evento_id: @evento.id,
     evento_id: @evento.id,
     certification_type_id: @certification_type.id,
     emission_sector_id: @emission_sector.id
