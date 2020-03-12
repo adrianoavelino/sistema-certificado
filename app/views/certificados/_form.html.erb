@@ -25,11 +25,11 @@
       </div>
       <div class="form-group">
         <%= form.label :aluno %>
-        <%= form.select :aluno_id, options_for_select(Aluno.all.map{|aluno|[aluno.nome, aluno.id]}, @certificado.aluno.id), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+        <%= form.select :aluno_id, options_for_select(Aluno.all.map{|aluno|[aluno.nome, aluno.id]}, value_selected(@certificado.aluno)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
       </div>
       <div class="form-group">
         <%= form.label :evento %>
-        <%= form.select :evento_id, options_for_select(Evento.all.map{|evento|[evento.descricao, evento.id]}, @certificado.evento.id), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+        <%= form.select :evento_id, options_for_select(Evento.all.map{|evento|[evento.descricao, evento.id]}, value_selected(@certificado.evento)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
       </div>
       <div class="form-group">
         <%= form.label :titulo %>
@@ -49,7 +49,7 @@
       </div>
       <div class="form-group">
         <%= form.label :certification_type %>
-        <%= form.select :certification_type_id, options_for_select(CertificationType.all.map{|certification_type|[certification_type.description, certification_type.id]}, @certificado.certification_type.id), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+        <%= form.select :certification_type_id, options_for_select(CertificationType.all.map{|certification_type|[certification_type.description, certification_type.id]}, value_selected(@certificado.certification_type)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
       </div>
       <div class="form-group">
         <%= form.label :dados_adicionais %>
@@ -57,7 +57,7 @@
       </div>
       <div class="form-group">
         <%= form.label :emission_sector %>
-        <%= form.select :emission_sector_id, options_for_select(EmissionSector.all.map{|emission_sector|[emission_sector.description, emission_sector.id]}, @certificado.emission_sector.id), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+        <%= form.select :emission_sector_id, options_for_select(EmissionSector.all.map{|emission_sector|[emission_sector.description, emission_sector.id]}, value_selected(@certificado.emission_sector)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
 
       </div>
       <div class="form-group">

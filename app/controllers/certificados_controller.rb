@@ -6,12 +6,7 @@ class CertificadosController < ApplicationController
   end
 
   def new
-    @certificado = Certificado.new(
-      aluno: Aluno.new,
-      evento: Evento.new,
-      certification_type: CertificationType.new,
-      emission_sector: EmissionSector.new
-    )
+    @certificado = Certificado.new
   end
 
   def create
@@ -27,6 +22,7 @@ class CertificadosController < ApplicationController
     if @certificado.destroy
       redirect_to emission_sectors_path, notice: 'Certificado excluído com sucesso!'
     else
+
       render 'index'
     end
   end
