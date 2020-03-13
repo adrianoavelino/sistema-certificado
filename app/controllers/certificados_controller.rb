@@ -20,7 +20,7 @@ class CertificadosController < ApplicationController
 
   def destroy
     if @certificado.destroy
-      redirect_to emission_sectors_path, notice: 'Certificado excluído com sucesso!'
+      redirect_to certificados_path, notice: 'Certificado excluído com sucesso!'
     else
 
       render 'index'
