@@ -32,3 +32,6 @@
         certification_type: Tipo de Certificação
         emission_sector: Setor de Emissão
         observacoes: Observações
+  errors:
+    messages:
+      content_type_invalid: " com arquivo inválido (somente PDF)"
