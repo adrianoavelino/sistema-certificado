@@ -96,5 +96,12 @@ def preencher_form_certificado(certificado)
   select certificado.certification_type.description, :from => "certificado_certification_type_id"
   fill_in "certificado_dados_adicionais", with: certificado.dados_adicionais
   select certificado.emission_sector.description, :from => "certificado_emission_sector_id"
+  file_path = Rails.root.join("features", "support", "assets", "test.pdf")
+  attach_file("certificado_anexo", file_path)
   fill_in "certificado_observacoes", with: certificado.observacoes
+end
+
+After do
+  file_path = Rails.root.join("tmp", "storage")
+  FileUtils.rm_rf(file_path)
 end
