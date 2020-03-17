@@ -17,6 +17,24 @@ Funcionalidade: Gerenciar certificados
     Quando eu enviar as informações do cadastro do certificado
     Então eu devo ver uma notificação de certificado cadastrado
 
+  Cenário: Adicionando um novo certificado em branco
+    Dado que eu visito a página de cadastro de certificados
+    Quando eu enviar as informações do cadastro do certificado com informações inválidas
+    Então devo ver uma notificação de "Ano não pode ficar em branco"
+    E devo ver uma notificação de "Aluno é obrigatório"
+    E devo ver uma notificação de "Evento é obrigatório"
+    E devo ver uma notificação de "Ano não pode ficar em branco"
+    E devo ver uma notificação de "Data de Emissão não pode ficar em branco"
+    E devo ver uma notificação de "Aluno é obrigatório"
+    E devo ver uma notificação de "Evento é obrigatório"
+    E devo ver uma notificação de "Título não pode ficar em branco"
+    E devo ver uma notificação de "Período Inicial não pode ficar em branco"
+    E devo ver uma notificação de "Período Final não pode ficar em branco"
+    E devo ver uma notificação de "Carga Horária não pode ficar em branco"
+    E devo ver uma notificação de "Tipo de Certificação é obrigatório"
+    E devo ver uma notificação de "Setor de Emissão é obrigatório"
+    E devo ver uma notificação de "Anexo não pode ficar em branco"
+
   Cenário: Visualizando lista de certificados
     Dado que eu tenho 4 certificados
     E eu acessar a página de certificados

@@ -21,6 +21,14 @@ Quando("eu enviar as informações do cadastro do certificado") do
   click_button "Criar Certificado"
 end
 
+Quando("eu enviar as informações do cadastro do certificado com informações inválidas") do
+  click_button "Criar Certificado"
+end
+
+Então('devo ver uma notificação de {string}') do | notificacao |
+  expect(page).to have_content "#{notificacao}"
+end
+
 Então("eu devo ver uma notificação de certificado cadastrado") do
   expect(page).to have_content 'Certificado cadastrado com sucesso!'
 end
