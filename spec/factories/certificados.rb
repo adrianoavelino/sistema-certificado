@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :certificado do
-    ano { FFaker::Time.date.year }
-    data_emissao { Time.now }
+    ano { FFaker::Time.between(Date.new(1900), Date.new(2020)).year }
+    data_emissao { FFaker::Time.between(Date.new(1900), Date.new(2020)) }
     aluno
     evento
     titulo { FFaker::Book.title }
@@ -11,9 +11,6 @@ FactoryBot.define do
     certification_type
     dados_adicionais { "ACADA. JOANA MARIA SILVA" }
     emission_sector
-    # avatar { fixture_file_upload(Rails.root.join('spec', 'support', 'assets', 'test-image.png'), 'image/png') }
-    # anexo { fixture_file_upload(Rails.root.join("features", "support", "assets", "test.pdf"), 'apllication/pdf')}
-    # file { Rack::Test::UploadedFile.new('spec/factories/test.png', 'image/png') }
     anexo { Rack::Test::UploadedFile.new(Rails.root.join("features", "support", "assets", "test.pdf"), 'application/pdf') }
 
     observacoes { FFaker::Tweet.body }
