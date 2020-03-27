@@ -1,0 +1,51 @@
+<div class="x_panel">
+  <div class="title_left">
+    <h3>Pesquisa de Certificados</h3>
+  </div>
+  <div class="x_content row">
+    <% if flash.any? %>
+        <div class="alert alert-danger col-12">
+          <div id="error_explanation">
+            <ul>
+              <% flash.each do |type, msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    <% end %>
+
+    <%= form_with(url: search_path, local: true, method: :get, class: "col-12") do |form| %>
+      <div class="form-row">
+        <div class="col-2">
+          <%= form.select :type, options_for_select(@search_types, @type_selected),{}, { class: 'custom-select custom-select-lg mb-3'} %>
+        </div>
+        <div class="col-6">
+          <%= form.text_field :term, value: @term, class: "form-control form-control-lg", placeholder: "Digite aqui a sua pesquisa" %>
+        </div>
+        <div class="col-2">
+          <input type="submit" value="Pesquisar" class="btn btn-lg btn-primary">
+        </div>
+      </div>
+    <% end %>
+
+
+    <table class="table table-striped jambo_table bulk_action col-12">
+      <thead>
+        <tr class="headings">
+          <th class="column-title">ID </th>
+          <th class="column-title">Aluno </th>
+          <th class="column-title">Título </th>
+          <th class="column-title no-link last"><span class="nobr">#</span></th>
+          <th class="bulk-actions" colspan="7">
+            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render(@certificados) %>
+      </tbody>
+    </table>
+  </div>
+</div>
