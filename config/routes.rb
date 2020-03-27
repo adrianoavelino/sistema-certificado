@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :certification_types
   resources :certificados
   root 'home#index'
+  get 'search', to: 'search#certificados'
 end
