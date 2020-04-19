@@ -1,5 +1,4 @@
 # language:pt
-@javascript
 
 @pesquisar_certficado
 Funcionalidade: Pesquisar certificados
