@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :certificados
   root 'home#index'
   get 'search', to: 'search#certificados'
+  get 'shipping', to: 'shipping#index'
 end
