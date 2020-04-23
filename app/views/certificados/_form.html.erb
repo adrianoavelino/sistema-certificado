@@ -21,7 +21,7 @@
       </div>
       <div class="form-group">
         <%= form.label :data_emissao %>
-        <%= form.text_field :data_emissao, class: 'form-control' %>
+        <%= form.text_field :data_emissao,value: "#{l(@certificado.data_emissao, default: "")}", class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= form.label :aluno %>
@@ -37,11 +37,11 @@
       </div>
       <div class="form-group">
         <%= form.label :periodo_inicial %>
-        <%= form.text_field :periodo_inicial, class: 'form-control' %>
+        <%= form.text_field :periodo_inicial, value: "#{l(@certificado.periodo_inicial, default: "")}", class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= form.label :periodo_final %>
-        <%= form.text_field :periodo_final, class: 'form-control' %>
+        <%= form.text_field :periodo_final, value: "#{l(@certificado.periodo_final, default: "")}" , class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= form.label :carga_horaria %>
