@@ -74,3 +74,55 @@
         <%= form.submit nil, :class => "btn btn-primary" %>
       </div>
     <% end %>
+
+<script>
+  window.onload = function(){
+    $('#certificado_data_emissao, #certificado_periodo_inicial, #certificado_periodo_final').daterangepicker({
+      locale: {
+        format: "DD/MM/YYYY",
+        separator: " - ",
+        applyLabel: "Aplicar",
+        cancelLabel: "Cancelar",
+        daysOfWeek: [
+          "Dom",
+          "Seg",
+          "Ter",
+          "Qua",
+          "Qui",
+          "Sex",
+          "Sab"
+        ],
+        monthNames: [
+          "Janeiro",
+          "Fevereiro",
+          "Março",
+          "Abril",
+          "Maio",
+          "Junho",
+          "Julho",
+          "Agosto",
+          "Setembro",
+          "Outubro",
+          "Novembro",
+          "Dezembro"
+        ],
+        firstDay: 1
+      },
+      minDate: getMindate(),
+      maxDate: getMaxdate(),
+      singleDatePicker: true,
+      showDropdowns: true,
+      autoUpdateInput: false
+    });
+
+    function getMaxdate() {
+      let today = new Date();
+      return new Date(today.setMonth(today.getMonth() + 1))
+    }
+
+    function getMindate() {
+      let today = new Date();
+      return new Date(today.setMonth(today.getMonth() - 60))
+    }
+  };
+</script>
