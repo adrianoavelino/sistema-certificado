@@ -1,7 +1,7 @@
 'pt-BR':
   activerecord:
     models:
-      usuario:
+      user:
         one: Usuário
         other: Usuários
       emission_sector:
@@ -11,7 +11,7 @@
         one: Tipo de Certificação
         other: Tipos de Certificação
     attributes:
-      usuario:
+      user:
         email: Email
         password: Senha
         password_confirmation: Confirmação de senha
