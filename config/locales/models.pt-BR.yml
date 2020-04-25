@@ -28,6 +28,7 @@
         description: Descrição
       certificado:
         data_emissao: Data de Emissão
+        event: Evento
         titulo: Título
         periodo_inicial: Período Inicial
         periodo_final: Período Final
