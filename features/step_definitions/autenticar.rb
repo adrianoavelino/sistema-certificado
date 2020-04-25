@@ -1,10 +1,10 @@
 Dado("que eu sou um usuário cadastrado") do
-  criar_usuario
-  expect(Usuario.count).to eq 1
+  create_user
+  expect(User.count).to eq 1
 end
 
 Dado("visito a página de login") do
-  visit new_usuario_session_path
+  visit new_user_session_path
   expect(page).to have_content 'Login'
 end
 
@@ -17,7 +17,7 @@ Então("eu devo ter acesso ao sistema") do
 end
 
 Dado("que eu sou um usuário autenticado") do
-  visit new_usuario_session_path
+  visit new_user_session_path
   fazer_login
 end
 
@@ -26,15 +26,15 @@ Quando("eu clico no link de sair") do
 end
 
 Então("eu devo acessar a página de login") do
-  expect(page).to have_current_path(new_usuario_session_path)
+  expect(page).to have_current_path(new_user_session_path)
 end
 
-def criar_usuario
-  @usuario = FactoryBot.create(:usuario)
+def create_user
+  @user = FactoryBot.create(:user)
 end
 
 def fazer_login
-  fill_in "usuario_email", with: @usuario.email
-  fill_in "usuario_password", with: @usuario.password
+  fill_in "user_email", with: @user.email
+  fill_in "user_password", with: @user.password
   click_button "Entrar"
 end

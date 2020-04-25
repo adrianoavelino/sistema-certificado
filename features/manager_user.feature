@@ -1,6 +1,6 @@
 # language:pt
 
-@gerenciar_usuario
+@manage_user
 Funcionalidade: Gerenciar usuarios
   Gerenciar os usuários do sistema
   Como usuário administrador do sistema
