@@ -4,6 +4,9 @@
       user:
         one: Usuário
         other: Usuários
+      event:
+        one: Evento
+        other: Eventos
       emission_sector:
         one: Setor de Emissão
         other: Setores de Emissão
@@ -17,8 +20,8 @@
         password_confirmation: Confirmação de senha
         created_at: Criado em
         updated_at: Atualizado em
-      evento:
-        descricao: Descrição
+      event:
+        description: Descrição
       emission_sector:
         description: Descrição
       certification_type:
