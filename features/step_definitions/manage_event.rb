@@ -1,5 +1,6 @@
 Dado("que eu visito a página de cadastro de eventos") do
-  visit new_event_path
+  page.find('a', text: "Evento").click
+  page.find('a', text: "Adicionar Evento").click
 end
 
 Quando("eu enviar as informações do cadastro do evento") do
@@ -29,7 +30,7 @@ Dado("que eu tenho {int} eventos") do |qtd|
 end
 
 Quando("eu acessar a página de eventos") do
-  visit events_path
+  page.find('a', text: "Evento").click
 end
 
 Então("eu devo visualizar {int} eventos na lista de eventos") do |int|
