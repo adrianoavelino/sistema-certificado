@@ -9,9 +9,9 @@
     <% end %>
 
     <div class="bar-button col-5 d-flex justify-content-end">
-      <a href="/eventos/new" type="button" class="btn btn-primary" aria-label="Right Align">
+      <%= link_to  new_event_path(@event), class: 'btn btn-primary' do %>
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Evento
-      </a>
+      <% end %>
     </div>
     <div class="col-5"></div>
     <table class="table table-striped jambo_table bulk_action col-5">
@@ -27,7 +27,7 @@
       </thead>
 
       <tbody>
-        <%= render(@eventos) %>
+        <%= render(@events) %>
       </tbody>
     </table>
   </div>

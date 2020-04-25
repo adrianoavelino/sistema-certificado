@@ -39,7 +39,7 @@ class CertificadosController < ApplicationController
   end
   private
   def certificado_params
-    params.require(:certificado).permit(:ano, :data_emissao, :aluno_id, :evento_id, :titulo, :periodo_inicial, :periodo_final, :carga_horaria, :certification_type_id, :dados_adicionais, :emission_sector_id, :anexo, :observacoes)
+    params.require(:certificado).permit(:ano, :data_emissao, :aluno_id, :event_id, :titulo, :periodo_inicial, :periodo_final, :carga_horaria, :certification_type_id, :dados_adicionais, :emission_sector_id, :anexo, :observacoes)
   end
 
   def set_certificado

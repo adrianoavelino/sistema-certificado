@@ -1,10 +1,11 @@
 Dado("que eu visito a página de cadastro de eventos") do
-  visit new_evento_path
+  page.find('a', text: "Evento").click
+  page.find('a', text: "Adicionar Evento").click
 end
 
 Quando("eu enviar as informações do cadastro do evento") do
-  evento = FactoryBot.build(:evento)
-  preencher_form_evento(evento)
+  event = FactoryBot.build(:event)
+  fill_event_form(event)
   click_button "Criar Evento"
 end
 
@@ -13,9 +14,9 @@ Então("eu devo ver uma notificação de evento cadastrado") do
 end
 
 Quando("eu enviar as informações do cadastro do evento com a descrição repetida") do
-  evento = FactoryBot.create(:evento)
-  preencher_form_evento(evento)
-  fill_in "evento_descricao", with: evento.descricao
+  event = FactoryBot.create(:event)
+  fill_event_form(event)
+  fill_in "event_description", with: event.description
   click_button "Criar Evento"
 end
 
@@ -24,52 +25,52 @@ Então("eu devo ver uma notificação de descrição do evento em uso") do
 end
 
 Dado("que eu tenho {int} eventos") do |qtd|
-  FactoryBot.create_list(:evento, qtd)
-  expect(Evento.count).to eq qtd
+  FactoryBot.create_list(:event, qtd)
+  expect(Event.count).to eq qtd
 end
 
 Quando("eu acessar a página de eventos") do
-  visit eventos_path
+  page.find('a', text: "Evento").click
 end
 
 Então("eu devo visualizar {int} eventos na lista de eventos") do |int|
-  evento_um = Evento.first
-  evento_dois = Evento.second
-  evento_tres = Evento.third
-  evento_quatro = Evento.fourth
-  expect(page).to have_content evento_um.descricao
-  expect(page).to have_content evento_dois.descricao
-  expect(page).to have_content evento_tres.descricao
-  expect(page).to have_content evento_quatro.descricao
+  event_um = Event.first
+  event_dois = Event.second
+  event_tres = Event.third
+  event_quatro = Event.fourth
+  expect(page).to have_content event_um.description
+  expect(page).to have_content event_dois.description
+  expect(page).to have_content event_tres.description
+  expect(page).to have_content event_quatro.description
 end
 
 Quando("deletar um evento") do
-  @evento_deletado = Evento.last
+  @deleted_event = Event.last
   all('[data-toggle="modal"]').last.click
   all('a.btn-danger').last.click
 end
 
 Então("eu não devo visualizar as informações desse evento") do
-  expect(page).not_to have_content @evento_deletado.descricao
+  expect(page).not_to have_content @deleted_event.description
   expect(page).to have_content 'Evento excluído com sucesso!'
 end
 
 Dado("que eu acesso a página de atualização do evento") do
-  FactoryBot.create(:evento)
-  visit eventos_path
-  all('.edit_evento').last.click
+  FactoryBot.create(:event)
+  visit events_path
+  all('.edit_event').last.click
 end
 
 Quando("eu alterar as informações do evento") do
-  @evento_atualizado = FactoryBot.build(:evento)
-  preencher_form_evento(@evento_atualizado)
+  @updated_event = FactoryBot.build(:event)
+  fill_event_form(@updated_event)
   click_button "Atualizar Evento"
 end
 
 Então("eu devo visualizar as informações atualizadas desse evento") do
-  expect(page).to have_content @evento_atualizado.descricao
+  expect(page).to have_content @updated_event.description
 end
 
-def preencher_form_evento(evento)
-  fill_in "evento_descricao", with: evento.descricao
+def fill_event_form(event)
+  fill_in "event_description", with: event.description
 end

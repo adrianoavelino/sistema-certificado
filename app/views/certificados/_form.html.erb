@@ -28,8 +28,8 @@
         <%= form.select :aluno_id, options_for_select(Aluno.all.map{|aluno|[aluno.nome, aluno.id]}, value_selected(@certificado.aluno)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
       </div>
       <div class="form-group">
-        <%= form.label :evento %>
-        <%= form.select :evento_id, options_for_select(Evento.all.map{|evento|[evento.descricao, evento.id]}, value_selected(@certificado.evento)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+        <%= form.label :event %>
+        <%= form.select :event_id, options_for_select(Event.all.map{|event|[event.description, event.id]}, value_selected(@certificado.event)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
       </div>
       <div class="form-group">
         <%= form.label :titulo %>
