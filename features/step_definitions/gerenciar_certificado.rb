@@ -1,6 +1,6 @@
 E("tenho um aluno, um evento, um certification_type e um emission_sector cadastrado") do
   @aluno = FactoryBot.create(:aluno)
-  @evento = FactoryBot.create(:evento)
+  @event = FactoryBot.create(:event)
   @certification_type = FactoryBot.create(:certification_type)
   @emission_sector = FactoryBot.create(:emission_sector)
 end
@@ -13,7 +13,7 @@ Quando("eu enviar as informações do cadastro do certificado") do
   certificado = FactoryBot.build(
     :certificado,
     aluno_id: @aluno.id,
-    evento_id: @evento.id,
+    event_id: @event.id,
     certification_type_id: @certification_type.id,
     emission_sector_id: @emission_sector.id
   )
@@ -79,7 +79,7 @@ Quando("eu alterar as informações do certificado") do
   @certificado_atualizado = FactoryBot.build(
     :certificado,
     aluno_id: @aluno.id,
-    evento_id: @evento.id,
+    event_id: @event.id,
     certification_type_id: @certification_type.id,
     emission_sector_id: @emission_sector.id
   )
@@ -96,7 +96,7 @@ def preencher_form_certificado(certificado)
   fill_in "certificado_data_emissao", with: certificado.data_emissao
   fill_in "certificado_data_emissao", with: certificado.data_emissao
   select certificado.aluno.nome, :from => "certificado_aluno_id"
-  select certificado.evento.descricao, :from => "certificado_evento_id"
+  select certificado.event.description, :from => "certificado_event_id"
   fill_in "certificado_titulo", with: certificado.titulo
   fill_in "certificado_periodo_inicial", with: certificado.periodo_inicial
   fill_in "certificado_periodo_final", with: certificado.periodo_final
