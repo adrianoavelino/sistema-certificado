@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_023327) do
+ActiveRecord::Schema.define(version: 2020_04_25_173020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_04_25_023327) do
     t.string "ano"
     t.date "data_emissao"
     t.bigint "aluno_id", null: false
-    t.bigint "evento_id", null: false
+    t.bigint "event_id", null: false
     t.string "titulo"
     t.date "periodo_inicial"
     t.date "periodo_final"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_04_25_023327) do
     t.index ["aluno_id"], name: "index_certificados_on_aluno_id"
     t.index ["certification_type_id"], name: "index_certificados_on_certification_type_id"
     t.index ["emission_sector_id"], name: "index_certificados_on_emission_sector_id"
-    t.index ["evento_id"], name: "index_certificados_on_evento_id"
+    t.index ["event_id"], name: "index_certificados_on_event_id"
   end
 
   create_table "certification_types", force: :cascade do |t|
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2020_04_25_023327) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "eventos", force: :cascade do |t|
-    t.string "descricao"
+  create_table "events", force: :cascade do |t|
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -98,5 +98,5 @@ ActiveRecord::Schema.define(version: 2020_04_25_023327) do
   add_foreign_key "certificados", "alunos"
   add_foreign_key "certificados", "certification_types"
   add_foreign_key "certificados", "emission_sectors"
-  add_foreign_key "certificados", "eventos"
+  add_foreign_key "certificados", "events"
 end
