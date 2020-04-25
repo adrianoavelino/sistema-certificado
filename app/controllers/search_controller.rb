@@ -24,9 +24,9 @@ class SearchController < ApplicationController
                                  .references(:alunos)
     when "evento"
       @certificados = Certificado.includes(:aluno)
-                                 .includes(:evento)
-                                 .where("lower(eventos.descricao) LIKE ?", "%#{@term.downcase}%")
-                                 .references(:eventos)
+                                 .includes(:event)
+                                 .where("lower(events.description) LIKE ?", "%#{@term.downcase}%")
+                                 .references(:events)
     else
       @certificados = Certificado.includes(:aluno)
     end

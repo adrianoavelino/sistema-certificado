@@ -84,8 +84,8 @@ Então("eu devo ver somente o certificado com Nome pesquisado") do
 end
 
 Quando("eu realizar a pesquisa por Evento") do
-  @evento = @certificados.last.evento.descricao
-  fill_in "term", with: @evento
+  @event = @certificados.last.event.description
+  fill_in "term", with: @event
   select 'Evento', :from => "type"
   click_button "Pesquisar"
 end
