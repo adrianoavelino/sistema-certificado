@@ -1,5 +1,5 @@
 # language:pt
-@gerenciar_evento
+@manage_event
 Funcionalidade: Gerenciar eventos
   Gerenciar os eventos do sistema
   Como usuário administrador do sistema
