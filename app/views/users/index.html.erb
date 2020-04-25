@@ -9,7 +9,7 @@
     <% end %>
 
     <div class="bar-button col-5 d-flex justify-content-end">
-      <a href="/usuarios/new" type="button" class="btn btn-primary" aria-label="Right Align">
+      <a href="/users/new" type="button" class="btn btn-primary" aria-label="Right Align">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Usuário
       </a>
     </div>
@@ -27,7 +27,7 @@
       </thead>
 
       <tbody>
-        <%= render(@usuarios) || "Não há usuários cadastrados" %>
+        <%= render(@users) || "Não há usuários cadastrados" %>
       </tbody>
     </table>
   </div>

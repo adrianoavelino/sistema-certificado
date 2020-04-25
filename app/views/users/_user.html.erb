@@ -1,18 +1,18 @@
 <tr class="even pointer">
-  <td class=" "><%= usuario.id %></td>
-  <td class=" "> <%= usuario.email %> </td>
+  <td class=" "><%= user.id %></td>
+  <td class=" "> <%= user.email %> </td>
   <td class=" last">
-    <%= link_to  edit_usuario_path(usuario), class: 'edit_usuario' do %>
+    <%= link_to  edit_user_path(user), class: 'edit_user' do %>
     <i class="fa fa-pencil"></i>
     <% end %>
     &nbsp;
     <!-- Button trigger modal -->
-    <a rel="nofollow" data-toggle="modal" data-target="#modalUsuario<%= usuario.id %>">
+    <a rel="nofollow" data-toggle="modal" data-target="#modalUsuario<%= user.id %>">
       <i class="fa fa-trash"></i>
     </a>
 
     <!-- Modal -->
-    <div class="modal fade" id="modalUsuario<%= usuario.id %>" tabindex="-1" role="dialog" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
+    <div class="modal fade" id="modalUsuario<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -22,11 +22,11 @@
             </button>
           </div>
           <div class="modal-body">
-            Deseja excluir o usuário <%= usuario.email %>?
+            Deseja excluir o usuário <%= user.email %>?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <%= link_to  usuario_path(usuario), method: :delete, class: 'btn btn-danger' do %>
+            <%= link_to  user_path(user), method: :delete, class: 'btn btn-danger' do %>
               Excluir
             <% end %>
           </div>
