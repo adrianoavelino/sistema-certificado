@@ -3,7 +3,7 @@ FactoryBot.define do
     ano { FFaker::Time.between(Date.new(1900), Date.new(2020)).year }
     data_emissao { FFaker::Time.between(Date.new(1900), Date.new(2020)) }
     aluno
-    evento
+    event
     titulo { FFaker::Book.title }
     periodo_inicial { "2020-03-04" }
     periodo_final { "2020-03-05" }
