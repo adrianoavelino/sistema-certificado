@@ -1,48 +1,49 @@
-class EventosController < ApplicationController
-  before_action :set_evento, only: [:edit, :destroy, :update]
+class EventsController < ApplicationController
+  before_action :set_event, only: [:edit, :destroy, :update]
+
   def index
-    @eventos = Evento.all
+    @events = Event.all
   end
 
   def new
-    @evento = Evento.new
+    @event = Event.new
   end
 
   def edit
   end
 
   def update
-    if @evento.update(evento_params)
-      redirect_to eventos_path, notice: "Evento atualizado com sucesso!"
+    if @event.update(event_params)
+      redirect_to events_path, notice: "Evento atualizado com sucesso!"
     else
       render 'edit'
     end
   end
 
   def create
-    @evento = Evento.new(evento_params)
-    if @evento.save
-      redirect_to new_evento_path, notice: "Evento cadastrado com sucesso!"
+    @event = Event.new(event_params)
+    if @event.save
+      redirect_to new_event_path, notice: "Evento cadastrado com sucesso!"
     else
       render 'new'
     end
   end
 
   def destroy
-    @evento = Evento.find(params[:id])
-    if @evento.destroy
-      redirect_to eventos_path, notice: 'Evento excluído com sucesso!'
+    @event = Event.find(params[:id])
+    if @event.destroy
+      redirect_to events_path, notice: 'Evento excluído com sucesso!'
     else
       render 'index'
     end
   end
 
   private
-  def evento_params
-    params.require(:evento).permit(:descricao)
+  def event_params
+    params.require(:event).permit(:description)
   end
 
-  def set_evento
-    @evento = Evento.find(params[:id])
+  def set_event
+    @event = Event.find(params[:id])
   end
 end
