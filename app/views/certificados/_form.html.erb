@@ -24,8 +24,8 @@
         <%= form.text_field :data_emissao,value: "#{l(@certificado.data_emissao, default: "")}", class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= form.label :aluno %>
-        <%= form.select :aluno_id, options_for_select(Aluno.all.map{|aluno|[aluno.nome, aluno.id]}, value_selected(@certificado.aluno)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+        <%= form.label :participant %>
+        <%= form.select :participant_id, options_for_select(Participant.all.map{|participant|[participant.name, participant.id]}, value_selected(@certificado.participant)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
       </div>
       <div class="form-group">
         <%= form.label :event %>

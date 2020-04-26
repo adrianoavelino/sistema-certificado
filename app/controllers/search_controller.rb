@@ -4,31 +4,31 @@ class SearchController < ApplicationController
   def certificados
     case @type_selected
     when "titulo"
-      @certificados = Certificado.includes(:aluno)
+      @certificados = Certificado.includes(:participant)
                                  .where("lower(titulo) LIKE ?", "%#{@term.downcase}%")
     when "data_emissao"
       error_message = 'Data inválida. Exemplo: yyyy-mm-dd'
       @certificados = Certificado.none and flash[:error] = error_message and return false unless data_valida?
-      @certificados = Certificado.includes(:aluno)
+      @certificados = Certificado.includes(:participant)
       .where("data_emissao = ?", @term.to_date)
 
     when "id"
-      @certificados = Certificado.includes(:aluno)
+      @certificados = Certificado.includes(:participant)
                                  .where("id = ?", @term.to_i)
     when "ano"
-      @certificados = Certificado.includes(:aluno)
+      @certificados = Certificado.includes(:participant)
                                  .where("ano = ?", @term)
     when "nome"
-      @certificados = Certificado.includes(:aluno)
-                                 .where("lower(alunos.nome) LIKE ?", "%#{@term.downcase}%")
-                                 .references(:alunos)
+      @certificados = Certificado.includes(:participant)
+                                 .where("lower(participants.name) LIKE ?", "%#{@term.downcase}%")
+                                 .references(:participants)
     when "evento"
-      @certificados = Certificado.includes(:aluno)
+      @certificados = Certificado.includes(:participant)
                                  .includes(:event)
                                  .where("lower(events.description) LIKE ?", "%#{@term.downcase}%")
                                  .references(:events)
     else
-      @certificados = Certificado.includes(:aluno)
+      @certificados = Certificado.includes(:participant)
     end
 
   end

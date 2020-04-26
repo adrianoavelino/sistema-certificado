@@ -7,6 +7,9 @@
       event:
         one: Evento
         other: Eventos
+      participant:
+        one: Participante
+        other: Participantes
       emission_sector:
         one: Setor de Emissão
         other: Setores de Emissão
@@ -22,6 +25,9 @@
         updated_at: Atualizado em
       event:
         description: Descrição
+      participant:
+        name: Nome
+        rg: RG
       emission_sector:
         description: Descrição
       certification_type:
@@ -29,6 +35,7 @@
       certificado:
         data_emissao: Data de Emissão
         event: Evento
+        participant: Participante
         titulo: Título
         periodo_inicial: Período Inicial
         periodo_final: Período Final

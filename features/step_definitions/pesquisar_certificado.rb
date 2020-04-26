@@ -1,5 +1,5 @@
 Dado("que eu tenho {int} certificados cadastrados") do |qtd|
-  alunos = FactoryBot.create_list(:aluno, qtd)
+  participants = FactoryBot.create_list(:participant, qtd)
   @certificados = FactoryBot.create_list(:certificado, qtd)
   expect(Certificado.count).to eq qtd
 end
@@ -65,22 +65,22 @@ Então("eu devo ver somente o certificado com ano pesquisado") do
 end
 
 Quando("eu realizar a pesquisa por Nome") do
-  @nome = @certificados.last.aluno.nome
-  fill_in "term", with: @nome
+  @name = @certificados.last.participant.name
+  fill_in "term", with: @name
   select 'Nome', :from => "type"
   click_button "Pesquisar"
 end
 
 Então("eu devo ver somente o certificado com Nome pesquisado") do
-  nome_um = @certificados.first.aluno.nome
-  nome_dois = @certificados.second.aluno.nome
-  nome_tres = @certificados.third.aluno.nome
-  nome_quatro = @certificados.fourth.aluno.nome
-  expect(page).to have_content @nome
-  expect(page).not_to have_content nome_um
-  expect(page).not_to have_content nome_dois
-  expect(page).not_to have_content nome_tres
-  expect(page).not_to have_content nome_quatro
+  name_um = @certificados.first.participant.name
+  name_dois = @certificados.second.participant.name
+  name_tres = @certificados.third.participant.name
+  name_quatro = @certificados.fourth.participant.name
+  expect(page).to have_content @name
+  expect(page).not_to have_content name_um
+  expect(page).not_to have_content name_dois
+  expect(page).not_to have_content name_tres
+  expect(page).not_to have_content name_quatro
 end
 
 Quando("eu realizar a pesquisa por Evento") do

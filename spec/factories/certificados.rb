@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :certificado do
     ano { FFaker::Time.between(Date.new(1900), Date.new(2020)).year }
     data_emissao { FFaker::Time.between(Date.new(1900), Date.new(2020)) }
-    aluno
+    participant
     event
     titulo { FFaker::Book.title }
     periodo_inicial { "2020-03-04" }
