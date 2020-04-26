@@ -10,7 +10,7 @@ Funcionalidade: Gerenciar certificados
   Cenário de Fundo:
     Dado que eu sou um usuário cadastrado
     E que eu sou um usuário autenticado
-    E tenho um aluno, um evento, um certification_type e um emission_sector cadastrado
+    E tenho um participante, um evento, um certification_type e um emission_sector cadastrado
 
   Cenário: Adicionando um novo certificado
     Dado que eu visito a página de cadastro de certificados
@@ -21,11 +21,11 @@ Funcionalidade: Gerenciar certificados
     Dado que eu visito a página de cadastro de certificados
     Quando eu enviar as informações do cadastro do certificado com informações inválidas
     Então devo ver uma notificação de "Ano não pode ficar em branco"
-    E devo ver uma notificação de "Aluno é obrigatório"
+    E devo ver uma notificação de "Participante é obrigatório"
     E devo ver uma notificação de "Evento é obrigatório"
     E devo ver uma notificação de "Ano não pode ficar em branco"
     E devo ver uma notificação de "Data de Emissão não pode ficar em branco"
-    E devo ver uma notificação de "Aluno é obrigatório"
+    E devo ver uma notificação de "Participante é obrigatório"
     E devo ver uma notificação de "Evento é obrigatório"
     E devo ver uma notificação de "Título não pode ficar em branco"
     E devo ver uma notificação de "Período Inicial não pode ficar em branco"

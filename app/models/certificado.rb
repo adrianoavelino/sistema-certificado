@@ -1,5 +1,5 @@
 class Certificado < ApplicationRecord
-  belongs_to :aluno
+  belongs_to :participant
   belongs_to :event
   belongs_to :certification_type
   belongs_to :emission_sector
