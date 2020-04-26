@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_173020) do
+ActiveRecord::Schema.define(version: 2020_04_26_151458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,17 +36,10 @@ ActiveRecord::Schema.define(version: 2020_04_25_173020) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "alunos", force: :cascade do |t|
-    t.string "nome"
-    t.string "ra"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "certificados", force: :cascade do |t|
     t.string "ano"
     t.date "data_emissao"
-    t.bigint "aluno_id", null: false
+    t.bigint "participant_id", null: false
     t.bigint "event_id", null: false
     t.string "titulo"
     t.date "periodo_inicial"
@@ -58,10 +51,10 @@ ActiveRecord::Schema.define(version: 2020_04_25_173020) do
     t.string "observacoes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["aluno_id"], name: "index_certificados_on_aluno_id"
     t.index ["certification_type_id"], name: "index_certificados_on_certification_type_id"
     t.index ["emission_sector_id"], name: "index_certificados_on_emission_sector_id"
     t.index ["event_id"], name: "index_certificados_on_event_id"
+    t.index ["participant_id"], name: "index_certificados_on_participant_id"
   end
 
   create_table "certification_types", force: :cascade do |t|
@@ -82,6 +75,13 @@ ActiveRecord::Schema.define(version: 2020_04_25_173020) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.string "name"
+    t.string "rg"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 2020_04_25_173020) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "certificados", "alunos"
   add_foreign_key "certificados", "certification_types"
   add_foreign_key "certificados", "emission_sectors"
   add_foreign_key "certificados", "events"
+  add_foreign_key "certificados", "participants"
 end
