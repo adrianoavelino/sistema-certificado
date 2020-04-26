@@ -1,19 +1,19 @@
   <tr class="even pointer">
-    <td class=" "><%= aluno.id %></td>
-    <td class=" "> <%= aluno.nome %> </td>
-    <td class=" "> <%= aluno.ra %> </td>
+    <td class=" "><%= participant.id %></td>
+    <td class=" "> <%= participant.name %> </td>
+    <td class=" "> <%= participant.rg %> </td>
     <td class=" last">
-      <%= link_to  edit_aluno_path(aluno), class: 'edit_aluno' do %>
+      <%= link_to  edit_participant_path(participant), class: 'edit_participant' do %>
       <i class="fa fa-pencil"></i>
       <% end %>
       &nbsp;
       <!-- Button trigger modal -->
-      <a rel="nofollow" data-toggle="modal" data-target="#modalUsuario<%= aluno.id %>">
+      <a rel="nofollow" data-toggle="modal" data-target="#modalUsuario<%= participant.id %>">
         <i class="fa fa-trash"></i>
       </a>
 
       <!-- Modal -->
-      <div class="modal fade" id="modalUsuario<%= aluno.id %>" tabindex="-1" role="dialog" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
+      <div class="modal fade" id="modalUsuario<%= participant.id %>" tabindex="-1" role="dialog" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -23,11 +23,11 @@
               </button>
             </div>
             <div class="modal-body">
-              Deseja excluir o aluno <%= aluno.nome %>?
+              Deseja excluir o participant <%= participant.name %>?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <%= link_to  aluno_path(aluno), method: :delete, class: 'btn btn-danger' do %>
+              <%= link_to  participant_path(participant), method: :delete, class: 'btn btn-danger' do %>
                 Excluir
               <% end %>
             </div>

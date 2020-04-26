@@ -1,7 +1,7 @@
 
 <div class="x_panel">
   <div class="title_left">
-    <h3>Lista de alunos</h3>
+    <h3>Lista de participantes</h3>
   </div>
   <div class="x_content row">
     <% if notice %>
@@ -9,9 +9,9 @@
     <% end %>
 
     <div class="bar-button col-5 d-flex justify-content-end">
-      <a href="/alunos/new" type="button" class="btn btn-primary" aria-label="Right Align">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Aluno
-      </a>
+      <%= link_to  new_participant_path(@event), class: 'btn btn-primary' do %>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Participante
+      <% end %>
     </div>
     <div class="col-5"></div>
     <table class="table table-striped jambo_table bulk_action col-5">
@@ -19,7 +19,7 @@
         <tr class="headings">
           <th class="column-title">ID </th>
           <th class="column-title">Nome </th>
-          <th class="column-title">RA </th>
+          <th class="column-title">RG </th>
           <th class="column-title no-link last"><span class="nobr">#</span></th>
           <th class="bulk-actions" colspan="7">
             <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -28,7 +28,7 @@
       </thead>
 
       <tbody>
-        <%= render(@alunos) %>
+        <%= render(@participants) %>
       </tbody>
     </table>
   </div>
