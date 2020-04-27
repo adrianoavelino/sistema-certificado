@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_151458) do
+ActiveRecord::Schema.define(version: 2020_04_27_231130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,25 +36,25 @@ ActiveRecord::Schema.define(version: 2020_04_26_151458) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "certificados", force: :cascade do |t|
-    t.string "ano"
-    t.date "data_emissao"
+  create_table "certificate", force: :cascade do |t|
+    t.string "year"
+    t.date "date_issue"
     t.bigint "participant_id", null: false
     t.bigint "event_id", null: false
-    t.string "titulo"
-    t.date "periodo_inicial"
-    t.date "periodo_final"
-    t.string "carga_horaria"
+    t.string "title"
+    t.date "initial_period"
+    t.date "final_period"
+    t.string "workload"
     t.bigint "certification_type_id", null: false
-    t.string "dados_adicionais"
+    t.string "additional_data"
     t.bigint "emission_sector_id", null: false
-    t.string "observacoes"
+    t.string "observation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["certification_type_id"], name: "index_certificados_on_certification_type_id"
-    t.index ["emission_sector_id"], name: "index_certificados_on_emission_sector_id"
-    t.index ["event_id"], name: "index_certificados_on_event_id"
-    t.index ["participant_id"], name: "index_certificados_on_participant_id"
+    t.index ["certification_type_id"], name: "index_certificate_on_certification_type_id"
+    t.index ["emission_sector_id"], name: "index_certificate_on_emission_sector_id"
+    t.index ["event_id"], name: "index_certificate_on_event_id"
+    t.index ["participant_id"], name: "index_certificate_on_participant_id"
   end
 
   create_table "certification_types", force: :cascade do |t|
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 2020_04_26_151458) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "certificados", "certification_types"
-  add_foreign_key "certificados", "emission_sectors"
-  add_foreign_key "certificados", "events"
-  add_foreign_key "certificados", "participants"
+  add_foreign_key "certificate", "certification_types"
+  add_foreign_key "certificate", "emission_sectors"
+  add_foreign_key "certificate", "events"
+  add_foreign_key "certificate", "participants"
 end
