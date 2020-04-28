@@ -9,6 +9,6 @@ class RenameCertificadoToCertificate < ActiveRecord::Migration[6.0]
     rename_column :certificados, :dados_adicionais, :additional_data
     rename_column :certificados, :observacoes, :observation
 
-    rename_table :certificados, :certificate
+    rename_table :certificados, :certificates
   end
 end
