@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_231130) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "certificate", force: :cascade do |t|
+  create_table "certificates", force: :cascade do |t|
     t.string "year"
     t.date "date_issue"
     t.bigint "participant_id", null: false
@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 2020_04_27_231130) do
     t.string "observation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["certification_type_id"], name: "index_certificate_on_certification_type_id"
-    t.index ["emission_sector_id"], name: "index_certificate_on_emission_sector_id"
-    t.index ["event_id"], name: "index_certificate_on_event_id"
-    t.index ["participant_id"], name: "index_certificate_on_participant_id"
+    t.index ["certification_type_id"], name: "index_certificates_on_certification_type_id"
+    t.index ["emission_sector_id"], name: "index_certificates_on_emission_sector_id"
+    t.index ["event_id"], name: "index_certificates_on_event_id"
+    t.index ["participant_id"], name: "index_certificates_on_participant_id"
   end
 
   create_table "certification_types", force: :cascade do |t|
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_231130) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "certificate", "certification_types"
-  add_foreign_key "certificate", "emission_sectors"
-  add_foreign_key "certificate", "events"
-  add_foreign_key "certificate", "participants"
+  add_foreign_key "certificates", "certification_types"
+  add_foreign_key "certificates", "emission_sectors"
+  add_foreign_key "certificates", "events"
+  add_foreign_key "certificates", "participants"
 end
