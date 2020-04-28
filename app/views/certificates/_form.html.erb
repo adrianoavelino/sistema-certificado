@@ -1,0 +1,128 @@
+    <% if notice %>
+      <div class="alert alert-success col-12"><%= notice %></div>
+    <% end %>
+
+    <% if @certificate.errors.any? %>
+        <div class="alert alert-danger col-12">
+          <div id="error_explanation">
+            <ul>
+              <% @certificate.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    <% end %>
+
+    <%= form_for @certificate do |form| %>
+      <div class="form-group">
+        <%= form.label :year %>
+        <%= form.text_field :year, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :date_issue %>
+        <%= form.text_field :date_issue,value: "#{l(@certificate.date_issue, default: "")}", class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :participant %>
+        <%= form.select :participant_id, options_for_select(Participant.all.map{|participant|[participant.name, participant.id]}, value_selected(@certificate.participant)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :event %>
+        <%= form.select :event_id, options_for_select(Event.all.map{|event|[event.description, event.id]}, value_selected(@certificate.event)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :initial_period %>
+        <%= form.text_field :initial_period, value: "#{l(@certificate.initial_period, default: "")}", class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :final_period %>
+        <%= form.text_field :final_period, value: "#{l(@certificate.final_period, default: "")}" , class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :workload %>
+        <%= form.text_field :workload, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :certification_type %>
+        <%= form.select :certification_type_id, options_for_select(CertificationType.all.map{|certification_type|[certification_type.description, certification_type.id]}, value_selected(@certificate.certification_type)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :additional_data %>
+        <%= form.text_field :additional_data, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :emission_sector %>
+        <%= form.select :emission_sector_id, options_for_select(EmissionSector.all.map{|emission_sector|[emission_sector.description, emission_sector.id]}, value_selected(@certificate.emission_sector)), {include_blank: 'Selecione uma opção'}, { class: 'select2_group form-control'} %>
+
+      </div>
+      <div class="form-group">
+        <%= form.label :anexo %>
+        <%= form.file_field :anexo, accept: 'application/pdf'  %>
+
+      </div>
+      <div class="form-group">
+        <%= form.label :observation %>
+        <%= form.text_field :observation, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit nil, :class => "btn btn-primary" %>
+      </div>
+    <% end %>
+
+<script>
+  window.onload = function(){
+    $('#certificate_date_issue, #certificate_initial_period, #certificate_final_period').daterangepicker({
+      locale: {
+        format: "DD/MM/YYYY",
+        separator: " - ",
+        applyLabel: "Aplicar",
+        cancelLabel: "Cancelar",
+        daysOfWeek: [
+          "Dom",
+          "Seg",
+          "Ter",
+          "Qua",
+          "Qui",
+          "Sex",
+          "Sab"
+        ],
+        monthNames: [
+          "Janeiro",
+          "Fevereiro",
+          "Março",
+          "Abril",
+          "Maio",
+          "Junho",
+          "Julho",
+          "Agosto",
+          "Setembro",
+          "Outubro",
+          "Novembro",
+          "Dezembro"
+        ],
+        firstDay: 1
+      },
+      minDate: getMindate(),
+      maxDate: getMaxdate(),
+      singleDatePicker: true,
+      showDropdowns: true,
+      autoUpdateInput: false
+    });
+
+    function getMaxdate() {
+      let today = new Date();
+      return new Date(today.setMonth(today.getMonth() + 1))
+    }
+
+    function getMindate() {
+      let today = new Date();
+      return new Date(today.setMonth(today.getMonth() - 60))
+    }
+  };
+</script>
