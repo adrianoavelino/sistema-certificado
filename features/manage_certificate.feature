@@ -1,6 +1,6 @@
 # language:pt
 
-@gerenciar_certificado
+@manage_certificate
 Funcionalidade: Gerenciar certificados
   Gerenciar os certificados do sistema
   Como usuário administrador do sistema
