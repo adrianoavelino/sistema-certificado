@@ -1,34 +1,33 @@
 class SearchController < ApplicationController
-  before_action :set_values, only: [:certificados]
+  before_action :set_values, only: [:certificates]
 
-  def certificados
+  def certificates
     case @type_selected
     when "titulo"
-      @certificados = Certificado.includes(:participant)
-                                 .where("lower(titulo) LIKE ?", "%#{@term.downcase}%")
+      @certificates = Certificate.includes(:participant)
+                                 .where("lower(title) LIKE ?", "%#{@term.downcase}%")
     when "data_emissao"
-      error_message = 'Data inválida. Exemplo: yyyy-mm-dd'
-      @certificados = Certificado.none and flash[:error] = error_message and return false unless data_valida?
-      @certificados = Certificado.includes(:participant)
-      .where("data_emissao = ?", @term.to_date)
-
+      error_message = 'Data inválida. Exemplo: dd/mm/yyyy'
+      @certificates = Certificate.none and flash[:error] = error_message and return false unless data_valida?
+      @certificates = Certificate.includes(:participant)
+                                 .where("date_issue = ?", @term.to_date)
     when "id"
-      @certificados = Certificado.includes(:participant)
+      @certificates = Certificate.includes(:participant)
                                  .where("id = ?", @term.to_i)
     when "ano"
-      @certificados = Certificado.includes(:participant)
-                                 .where("ano = ?", @term)
+      @certificates = Certificate.includes(:participant)
+                                 .where("year = ?", @term)
     when "nome"
-      @certificados = Certificado.includes(:participant)
+      @certificates = Certificate.includes(:participant)
                                  .where("lower(participants.name) LIKE ?", "%#{@term.downcase}%")
                                  .references(:participants)
     when "evento"
-      @certificados = Certificado.includes(:participant)
+      @certificates = Certificate.includes(:participant)
                                  .includes(:event)
                                  .where("lower(events.description) LIKE ?", "%#{@term.downcase}%")
                                  .references(:events)
     else
-      @certificados = Certificado.includes(:participant)
+      @certificates = Certificate.includes(:participant)
     end
 
   end

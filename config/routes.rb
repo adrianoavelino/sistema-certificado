@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :certification_types
   resources :certificates
   root 'home#index'
-  get 'search', to: 'search#certificados'
+  get 'search', to: 'search#certificates'
   get 'shipping', to: 'shipping#index'
 end

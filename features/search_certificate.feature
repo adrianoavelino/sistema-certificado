@@ -45,4 +45,4 @@ Funcionalidade: Pesquisar certificados
   Cenário: Pesquisando certificado por Data de Emissão com valor inválido
     Dado que eu visito a página de pesquisa de certificados
     Quando eu realizar a pesquisa por Data de Emissão com valor inválido
-    Então devo ver uma notificação de "Data inválida. Exemplo: yyyy-mm-dd"
+    Então devo ver uma notificação de "Data inválida. Exemplo: dd/mm/yyyy"
