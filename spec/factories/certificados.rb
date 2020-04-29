@@ -1,18 +1,17 @@
 FactoryBot.define do
-  factory :certificado do
-    ano { FFaker::Time.between(Date.new(1900), Date.new(2020)).year }
-    data_emissao { FFaker::Time.between(Date.new(1900), Date.new(2020)) }
+  factory :certificate do
+    year { FFaker::Time.between(Date.new(1900), Date.new(2020)).year }
+    date_issue { FFaker::Time.between(Date.new(1900), Date.new(2020)) }
     participant
     event
-    titulo { FFaker::Book.title }
-    periodo_inicial { "2020-03-04" }
-    periodo_final { "2020-03-05" }
-    carga_horaria { "12" }
+    title { FFaker::Book.title }
+    initial_period { "2020-03-04" }
+    final_period { "2020-03-05" }
+    workload { "12" }
     certification_type
-    dados_adicionais { "ACADA. JOANA MARIA SILVA" }
+    additional_data { "ACADA. JOANA MARIA SILVA" }
     emission_sector
     anexo { Rack::Test::UploadedFile.new(Rails.root.join("features", "support", "assets", "test.pdf"), 'application/pdf') }
-
-    observacoes { FFaker::Tweet.body }
+    observation { FFaker::Tweet.body }
   end
 end

@@ -1,19 +1,19 @@
   <tr class="even pointer">
-    <td class=" "><%= certificado.id %></td>
-    <td class=" "><%= certificado.participant.name %></td>
-    <td class=" "> <%= certificado.titulo %> </td>
+    <td class=" "><%= certificate.id %></td>
+    <td class=" "><%= certificate.participant.name %></td>
+    <td class=" "> <%= certificate.title %> </td>
     <td class=" last">
-      <%= link_to  edit_certificado_path(certificado), class: 'edit_certificado' do %>
+      <%= link_to  edit_certificate_path(certificate), class: 'edit_certificate' do %>
       <i class="fa fa-pencil"></i>
       <% end %>
       &nbsp;
       <!-- Button trigger modal -->
-      <a rel="nofollow" data-toggle="modal" data-target="#modalCertificado<%= certificado.id %>">
+      <a rel="nofollow" data-toggle="modal" data-target="#modalCertificado<%= certificate.id %>">
         <i class="fa fa-trash"></i>
       </a>
 
       <!-- Modal -->
-      <div class="modal fade" id="modalCertificado<%= certificado.id %>" tabindex="-1" role="dialog" aria-labelledby="modalEventoLabel" aria-hidden="true">
+      <div class="modal fade" id="modalCertificado<%= certificate.id %>" tabindex="-1" role="dialog" aria-labelledby="modalEventoLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -23,11 +23,11 @@
               </button>
             </div>
             <div class="modal-body">
-              Deseja excluir o Certificado de código <%= certificado.id %>?
+              Deseja excluir o Certificado de código <%= certificate.id %>?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <%= link_to  certificado_path(certificado), method: :delete, class: 'btn btn-danger' do %>
+              <%= link_to  certificate_path(certificate), method: :delete, class: 'btn btn-danger' do %>
                 Excluir
               <% end %>
             </div>

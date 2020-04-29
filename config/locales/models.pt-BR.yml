@@ -16,6 +16,9 @@
       certification_type:
         one: Tipo de Certificação
         other: Tipos de Certificação
+      certificate:
+        one: Certificado
+        other: Certificados
     attributes:
       user:
         email: Email
@@ -32,17 +35,18 @@
         description: Descrição
       certification_type:
         description: Descrição
-      certificado:
-        data_emissao: Data de Emissão
+      certificate:
+        year: Ano
+        date_issue: Data de Emissão
         event: Evento
         participant: Participante
-        titulo: Título
-        periodo_inicial: Período Inicial
-        periodo_final: Período Final
-        carga_horaria: Carga Horária
+        title: Título
+        initial_period: Período Inicial
+        final_period: Período Final
+        workload: Carga Horária
         certification_type: Tipo de Certificação
         emission_sector: Setor de Emissão
-        observacoes: Observações
+        observation: Observações
   errors:
     messages:
       content_type_invalid: " com arquivo inválido (somente PDF)"
