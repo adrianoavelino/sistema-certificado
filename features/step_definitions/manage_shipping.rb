@@ -4,14 +4,14 @@ Dado("que eu visito a página de Remessa") do
 end
 
 Quando("eu enviar {int} números alternados de certificados existentes") do |int|
-  all_certificate_numbers = Certificado.all.pluck(:id)
+  all_certificate_numbers = Certificate.all.pluck(:id)
   certification_numbers = get_two_alternating_numbers(all_certificate_numbers)
   fill_in "term", with: certification_numbers
   click_button "Pesquisar"
 end
 
 Quando("eu enviar um intervalo de {int} de certificados") do |qtd|
-  all_certificate_numbers = Certificado.all.order("id").pluck(:id)
+  all_certificate_numbers = Certificate.all.order("id").pluck(:id)
   certification_numbers = get_interval_numbers(all_certificate_numbers, 5)
   fill_in "term", with: certification_numbers
   click_button "Pesquisar"
@@ -23,7 +23,7 @@ Então("eu devo ver {int} certificados listados") do |qtd|
 end
 
 Quando("eu enviar {int} números alternados e um intervalo de números {int} de certificados") do |alternate_qtd, interval_qtd|
-  all_certificate_numbers = Certificado.all.order("id").pluck(:id)
+  all_certificate_numbers = Certificate.all.order("id").pluck(:id)
   certification_numbers = get_interval_numbers(all_certificate_numbers, 3)
   certification_numbers += "," + get_two_alternating_numbers(all_certificate_numbers)
   fill_in "term", with: certification_numbers

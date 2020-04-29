@@ -29,7 +29,7 @@
       </div>
     <% end %>
 
-    <% if @certificados.any? %>
+    <% if @certificates.any? %>
     <table class="table table-striped jambo_table bulk_action col-12">
       <thead>
         <tr class="headings">
@@ -42,7 +42,7 @@
       </thead>
 
       <tbody>
-        <%= render partial: "certificado", collection: @certificados %>
+        <%= render partial: "certificate", collection: @certificates %>
       </tbody>
     </table>
     <% end %>

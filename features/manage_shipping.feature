@@ -1,5 +1,6 @@
 # language:pt
-@gerar_remessa
+
+@manage_shipping
 Funcionalidade: Gerar remessa de certificados
   Gerar remessa de certificados
   Como usuário do sistema
