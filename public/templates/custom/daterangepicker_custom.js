@@ -66,5 +66,4 @@ $(function() {
       $("#term").singleDatePicker();
   }
 
-
 });
