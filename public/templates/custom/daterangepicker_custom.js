@@ -53,6 +53,18 @@ $(function() {
 
   $("#certificate_date_issue, #certificate_initial_period, #certificate_final_period").singleDatePicker();
 
+  $("#type").change(function(){
+    if ($(this).val() === 'data_emissao') {
+      $("#term").singleDatePicker();
+      return;
+    }
+    $("#term").data('daterangepicker').remove();
+    $("#term").val("");
+  });
+
+  if ($("#type").val() == 'data_emissao') {
+      $("#term").singleDatePicker();
+  }
 
 
 });
