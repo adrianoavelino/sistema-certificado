@@ -10,6 +10,8 @@
     </a>
 </p>
 
+<image src="app/assets/images/print-app.png" alt="Imagem da aplicação">
+
 ## Começando
 ### Configuração do ambiente de desenvolvimento
 > A configuração do ambiente deve ser executada somente na primeira vez
