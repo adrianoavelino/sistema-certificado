@@ -28,23 +28,11 @@ docker-compose build
 #atualiza o yarn no container app
 docker-compose run --rm app yarn install --check-files
 
-#cria os bancos de dados
-docker-compose run --rm app bundle exec rails db:create
+#instala as dependências
+docker-compose run --rm app bundle install
 
-#executa a migrations
-docker-compose run --rm app bundle exec rails db:migrate
-
-#executa o rails console 
-docker-compose run --rm app bundle exec rails c
-
-#cria o usuário para teste no sistema no rails console
-User.create(email: "email@email.com", password: "123123")
-
-#fecha o rails console (deve-se pressionar a combinação de teclas)
-`CTRL + D`
-
-#cria diretório tmp/pids para evitar erro de inicialização do servidor puma
-docker-compose run --rm app mkdir tmp/pids
+#configura o banco de dados
+docker-compose run --rm app bundle exec rails db:setup
 ```
 
 ### Inicialização da aplicação
@@ -53,7 +41,12 @@ docker-compose run --rm app mkdir tmp/pids
 docker-compose up -d
 ```
 
-Após incializar os containers, acesse o endereço [http://localhost:3000/users/sign_in](http://localhost:3000/users/sign_in) para acessar aplicação e utilize o usuário criado acima, com o auxílio do rails console, para se autenticar.
+Após incializar os containers, acesse o endereço [http://localhost:3000/users/sign_in](http://localhost:3000/users/sign_in) para ter acesso à aplicação.
+
+Usuário e senha para o primeiro acesso:
+| Usuário         | Senha  |
+| --------------- | ------ |
+| email@email.com | 123123 |
 
 Outros comandos úteis:
 ```bash
