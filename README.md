@@ -65,3 +65,13 @@ docker-compose restart
 #volumes e images criadas pelo comando docker-compose up
 docker-compose down
 ```
+
+### Testes
+
+```bash
+#inicie o ambiente de testes
+docker-compose -f docker-compose-test.yml up
+
+#execute os testes e2e
+docker-compose -f docker-compose-test.yml run --rm test bundle exec cucumber
+```
