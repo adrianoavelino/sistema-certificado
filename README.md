@@ -61,6 +61,7 @@ docker-compose stop
 #reinicia a aplicação
 docker-compose restart
 
-#para os containers e remove os containers, networks, volumes e images criadas pelo comando docker-compose up
+#para os containers e remove os containers, networks,
+#volumes e images criadas pelo comando docker-compose up
 docker-compose down
 ```
