@@ -25,7 +25,7 @@ services:
     tty: true
 
   selenium:
-    image: selenium/standalone-chrome-debug
+    image: selenium/standalone-chrome-debug:3.14
     logging:
       driver: none
     stdin_open: true
